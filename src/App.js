@@ -1,21 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+
+const App = () => {
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+        <p className='profe'>
+          Conrado Lanusse the best in the world.
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://coderhouse.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Go Coder
         </a>
       </header>
     </div>
