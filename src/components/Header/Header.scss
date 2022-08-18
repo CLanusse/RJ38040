@@ -1,0 +1,35 @@
+
+.bg-header {
+    
+    background-color: bisque;
+    .header-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px 0;
+    
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .header-title {
+            font-size: 30px;
+            font-weight: 700;
+        }
+        
+        .header-navbar {
+            min-width: 400px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        
+            .header-navlink {
+                font-size: 18px;
+                font-weight: 700;
+                color: red;
+            }
+        }
+    }
+}
+
+
+
