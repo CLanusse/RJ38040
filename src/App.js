@@ -1,30 +1,29 @@
 import './App.css'
 import { Header } from './components/Header/Header'
-import UsersContainer from './ejemplos/UsersContainer';
-import Container from './ejemplos/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button } from 'react-bootstrap';
+import Contador from './ejemplos/Contador';
+import { useState } from 'react';
 
 const App = () => {
   
+  const [show, setShow] = useState(false)
   
-  
+  const handleShow = () => {
+    setShow(!show)
+  }
+
   return (
 
     <div>
       <Header/>
 
-      <Container>
-          <h4>Algún contenido</h4>
-          <UsersContainer/>
+      <button className='btn btn-primary' onClick={handleShow} >Mostrar contador</button>
 
-          {/* <button className='btn btn-primary'>CLICK ME</button>
-          
-          */}
+      {
+        show ? <Contador/> : null
+      }
 
-          <Button variant="danger" size="lg">Click me</Button>
-          <Button variant="danger" size="sm">Click me</Button>
-      </Container>
+      
 
     </div>
   );
