@@ -26,10 +26,10 @@ const Contador = () => {
     }
 
     // console.log("Contador Montado!")
-
+    
     useEffect( () => {
         console.log("Contador Montado!")
-
+        
         return () => {
             console.log("Contador Desmontado")
         }
