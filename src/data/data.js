@@ -5,7 +5,8 @@ export const stock = [
         precio: 1000,
         img: 'https://via.placeholder.com/250',
         stock: 50,
-        desc: 'Un gran producto'
+        desc: 'Un gran producto',
+        category: 'remeras'
     },
     {
         id: 2,
@@ -13,7 +14,8 @@ export const stock = [
         precio: 2000,
         img: 'https://via.placeholder.com/250',
         stock: 50,
-        desc: 'Un gran producto'
+        desc: 'Un gran producto',
+        category: 'remeras'
     },
     {
         id: 3,
@@ -21,7 +23,8 @@ export const stock = [
         precio: 3000,
         img: 'https://via.placeholder.com/250',
         stock: 50,
-        desc: 'Un gran producto'
+        desc: 'Un gran producto',
+        category: 'zapatillas'
     },
     {
         id: 4,
@@ -29,7 +32,8 @@ export const stock = [
         precio: 4000,
         img: 'https://via.placeholder.com/250',
         stock: 50,
-        desc: 'Un gran producto'
+        desc: 'Un gran producto',
+        category: 'zapatillas'
     },
     {
         id: 5,
@@ -37,7 +41,8 @@ export const stock = [
         precio: 5000,
         img: 'https://via.placeholder.com/250',
         stock: 50,
-        desc: 'Un gran producto'
+        desc: 'Un gran producto',
+        category: 'gorros'
     },
     {
         id: 6,
@@ -45,6 +50,7 @@ export const stock = [
         precio: 6000,
         img: 'https://via.placeholder.com/250',
         stock: 50,
-        desc: 'Un gran producto'
+        desc: 'Un gran producto',
+        category: 'gorros'
     },
 ]
