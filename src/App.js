@@ -20,8 +20,8 @@ const App = () => {
             <Route path='/productos/:categoryId' element={<ItemListContainer/>} />
             <Route path='/item/:itemId' element={<ItemDetailContainer />}/>
 
-            {/* <Route path="/nosotros" element={<Nosotros/>}/>
-            <Route path="/contacto" element={<Contacto/>}/> */}
+            <Route path="/nosotros" element={<Nosotros/>}/>
+            <Route path="/contacto" element={<Contacto/>}/>
             {/* <Route path='*' element={ <Error404/>}/> */}
             <Route path='*' element={ <Navigate to="/"/>} />
           </Routes>
