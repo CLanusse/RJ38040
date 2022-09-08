@@ -1,6 +1,7 @@
 
 import './Header.scss'
 import { Link } from 'react-router-dom'
+import CartWidget from '../CartWidget/CartWidget'
 
 export const Header = () => {
 
@@ -18,6 +19,7 @@ export const Header = () => {
                     <Link to='/nosotros' className="header-navlink">Nosotros</Link>
                     <Link to='/contacto' className="header-navlink">Contacto</Link>
                 </nav>
+                <CartWidget />
             </div>
         </header>
     )

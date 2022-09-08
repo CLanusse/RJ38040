@@ -6,10 +6,17 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Nosotros from './components/Nosotros/Nosotros';
 import Contacto from './components/Contacto/Contacto';
+import { CartProvider } from './context/CartContext';
+import Cart from './components/Cart/Cart';
+import { DarkModeProvider } from './context/DarkModeContext';
 
 const App = () => {
 
+
+
   return (
+    <CartProvider>
+      <DarkModeProvider>
 
       <BrowserRouter>
 
@@ -20,6 +27,7 @@ const App = () => {
             <Route path='/productos/:categoryId' element={<ItemListContainer/>} />
             <Route path='/item/:itemId' element={<ItemDetailContainer />}/>
 
+            <Route path='/cart' element={<Cart/>}/>
             <Route path="/nosotros" element={<Nosotros/>}/>
             <Route path="/contacto" element={<Contacto/>}/>
             {/* <Route path='*' element={ <Error404/>}/> */}
@@ -30,6 +38,8 @@ const App = () => {
           {/* <Footer/> */}
       </BrowserRouter>
 
+      </DarkModeProvider>
+    </CartProvider>
   );
 }
 
