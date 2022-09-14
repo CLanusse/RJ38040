@@ -43,6 +43,8 @@ const LoginScreen = () => {
                     value={pass}
                     onChange={handlePassChange}
                 />
+                {user.error && <small>{user.error}</small>}
+                {/* {user.error ? <small>{user.error}</small> : null} */}
 
                 <button className="btn btn-primary" type="submit">Ingresar</button>
             </form>

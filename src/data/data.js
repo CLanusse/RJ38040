@@ -2,9 +2,10 @@ export const stock = [
     {
         id: 1,
         nombre: 'Producto 1',
+        promo: 20,
         precio: 1000,
         img: 'https://via.placeholder.com/210',
-        stock: 10,
+        stock: 0,
         desc: 'Un gran producto',
         category: 'remeras',
         colores: [
@@ -35,6 +36,7 @@ export const stock = [
     {
         id: 2,
         nombre: 'Producto 2',
+        promo: null,
         precio: 2000,
         img: 'https://via.placeholder.com/210',
         stock: 4,
@@ -76,6 +78,7 @@ export const stock = [
     {
         id: 3,
         nombre: 'Producto 3',
+        promo: 30,
         precio: 3000,
         img: 'https://via.placeholder.com/210',
         stock: 14,
@@ -113,6 +116,7 @@ export const stock = [
     {
         id: 4,
         nombre: 'Producto 4',
+        promo: null,
         precio: 4000,
         img: 'https://via.placeholder.com/210',
         stock: 10,
@@ -154,6 +158,7 @@ export const stock = [
     {
         id: 5,
         nombre: 'Producto 5',
+        promo: null,
         precio: 1000,
         img: 'https://via.placeholder.com/210',
         stock: 15,
@@ -187,6 +192,7 @@ export const stock = [
     {
         id: 6,
         nombre: 'Producto 6',
+        promo: null,
         precio: 6000,
         img: 'https://via.placeholder.com/210',
         stock: 10,

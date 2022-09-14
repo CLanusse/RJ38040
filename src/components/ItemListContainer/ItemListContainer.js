@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { pedirDatos } from "../../helpers/pedirDatos"
 import ItemList from "../ItemList/ItemList"
-import { Navigate, useParams } from 'react-router-dom'
-import { useLoginContext } from "../../context/LoginContext"
+import { useParams } from 'react-router-dom'
+import Loader from "../Loader/Loader"
 
 
 const ItemListContainer = () => {
@@ -33,18 +33,14 @@ const ItemListContainer = () => {
     }, [categoryId])
 
 
-    const {user} = useLoginContext()
-
     return (
-       
         <div>
             {
                 loading 
-                ? <h2>Cargando...</h2>
+                ? <Loader/>
                 : <ItemList productos={productos}/>
             }
-        </div>
-              
+        </div>   
     )
 }
 
