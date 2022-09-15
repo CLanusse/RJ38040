@@ -1,28 +1,20 @@
 import {  useState } from "react"
 import { Link } from "react-router-dom"
 import { useCartContext } from "../../context/CartContext"
-import Memo from "../../ejemplos/Memo"
 import Counter from "../Counter/Counter"
-import Select from "../Select/Select"
-
-
 
 const ItemDetail = ({item}) => {
 
-    const { cart, addToCart, isInCart } = useCartContext()
+    const { addToCart, isInCart } = useCartContext()
 
     const [cantidad, setCantidad] = useState(1)
-    const [talle, setTalle] = useState(item.talles[0].value)
-    const [color, setColor] = useState(item.colores[0].value)
    
     const handleAgregar = () => {
         const itemToCart = {
             id: item.id,
             precio: item.precio,
             nombre: item.nombre,
-            talle,
-            cantidad,
-            color
+            cantidad
         }
         
         addToCart(itemToCart)
@@ -40,11 +32,9 @@ const ItemDetail = ({item}) => {
 
             {item.promo && <h5 style={{color: 'red'}}>{item.promo}% OFF !!</h5>}
             <hr/>
-            <Select options={item.talles} onSelect={setTalle}/>
-            <Select options={item.colores} onSelect={setColor}/>
-            <hr/>
-            <Memo/>
-            
+            {/* <Select options={item.talles} onSelect={setTalle}/> */}
+            {/* <Select options={item.colores} onSelect={setColor}/> */}
+                        
             {
                 isInCart(item.id)
                 ?   <Link to="/cart" className="btn btn-success my-2">Terminar mi compra</Link>
