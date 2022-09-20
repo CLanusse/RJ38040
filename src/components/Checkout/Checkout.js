@@ -63,13 +63,13 @@ const Checkout = () => {
 
         })
 
-        addDoc(ordenesRef, orden)
-            .then((doc) => {
-                console.log(doc.id)
-                // terminarCompraConSwal(doc.id)
-                setOrderId(doc.id)
-                terminarCompra()
-            })
+        // addDoc(ordenesRef, orden)
+        //     .then((doc) => {
+        //         console.log(doc.id)
+        //         // terminarCompraConSwal(doc.id)
+        //         setOrderId(doc.id)
+        //         terminarCompra()
+        //     })
     }
 
     if (orderId) {
