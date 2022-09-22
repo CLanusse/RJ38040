@@ -1,8 +1,7 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
-import { LoginProvider, useLoginContext } from './context/LoginContext';
+import { LoginProvider } from './context/LoginContext';
 import AppRouter from './router/AppRouter';
 
 const App = () => {
@@ -17,8 +16,6 @@ const App = () => {
 }
 
 export default App;
-
-
 
 // ejemplo dos ROutes
 /* <Routes>

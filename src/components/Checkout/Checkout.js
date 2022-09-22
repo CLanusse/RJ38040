@@ -1,29 +1,23 @@
 import { useState } from "react"
 import { Navigate } from "react-router-dom"
 import { useCartContext } from "../../context/CartContext"
-import { addDoc, collection, doc, getDoc, updateDoc } from 'firebase/firestore'
+import { addDoc, collection, getDocs, writeBatch, query, where, documentId } from 'firebase/firestore'
 import { db } from "../../firebase/config"
+import { useForm } from "../../hooks/useForm"
 
 const Checkout = () => {
 
-    const { cart, cartTotal, terminarCompra, terminarCompraConSwal } = useCartContext()
+    const { cart, cartTotal, terminarCompra } = useCartContext()
 
     const [orderId, setOrderId] = useState(null)
 
-    const [values, setValues] = useState({
+    const { values, handleInputChange } = useForm({
         nombre: '',
         email: '',
         direccion: '',
     })
 
-    const handleInputChange = (e) => {
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value
-        })
-    }
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         const orden = {
@@ -43,33 +37,45 @@ const Checkout = () => {
             return 
         }
 
-        const ordenesRef = collection(db, 'ordenes54')
+        const batch = writeBatch(db)
+        const ordenesRef = collection(db, 'ordenes')
+        const productosRef = collection(db, 'productos')
+    
+        const q = query(productosRef, where(documentId(), 'in', cart.map(item => item.id)))
 
-        cart.forEach((item) => {
-            const docRef = doc(db, 'productos', item.id)
+        const productos = await getDocs(q)
 
-            getDoc(docRef)
-                .then((doc) => {
+        const outOfStock = []
+            
+        productos.docs.forEach((doc) => {
+            const itemInCart = cart.find(item => item.id === doc.id)
 
-                    if (doc.data().stock >= item.cantidad) {
-
-                        updateDoc(docRef, {
-                            stock: doc.data().stock - item.cantidad
-                        })
-                    } else {
-                        alert("No hay stock suficiente")
-                    }
+            if (doc.data().stock >= itemInCart.cantidad) {
+                batch.update(doc.ref, {
+                    stock: doc.data().stock - itemInCart.cantidad
                 })
-
+            } else {
+                outOfStock.push(itemInCart)
+            }
         })
 
-        // addDoc(ordenesRef, orden)
-        //     .then((doc) => {
-        //         console.log(doc.id)
-        //         // terminarCompraConSwal(doc.id)
-        //         setOrderId(doc.id)
-        //         terminarCompra()
-        //     })
+        if (outOfStock.length === 0) {
+            batch.commit()
+                .then(() => {
+                    addDoc(ordenesRef, orden)
+                        .then((doc) => {
+                            console.log(doc.id)
+                            // terminarCompraConSwal(doc.id)
+                            setOrderId(doc.id)
+                            terminarCompra()
+                        })
+                })
+        } else {
+            
+            alert("Hay items sin stock")
+            console.log(outOfStock)
+        }
+
     }
 
     if (orderId) {

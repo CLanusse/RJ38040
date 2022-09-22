@@ -1,47 +1,36 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { LoginContext } from "../../context/LoginContext"
-
-
-
+import { useForm } from "../../hooks/useForm"
 
 const LoginScreen = () => {
 
     const {login, user} = useContext(LoginContext)
-    console.log(user)
-
-    const [email, setEmail] = useState('')
-    const [pass, setPass] = useState('')
-
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value)
-    }
-
-    const handlePassChange = (e) => {
-        setPass(e.target.value)
-    }
-
+    const { values, handleInputChange } = useForm({
+        email: '',
+        pass: ''
+    })
+    
     const handleSubmit = (e) => {
         e.preventDefault()
-
-        login({
-            email, pass
-        })
+        login(values)
     }
 
     return (
         <div style={{backgroundColor: 'bisque'}}>
             <form onSubmit={handleSubmit} className="container py-5">
                 <input 
+                    name="email"
                     type={'email'}
                     className='form-control my-2'
-                    value={email}
-                    onChange={handleEmailChange}
+                    value={values.email}
+                    onChange={handleInputChange}
                 />
                 <input 
+                    name="pass"
                     type={'password'}
                     className='form-control my-2'
-                    value={pass}
-                    onChange={handlePassChange}
+                    value={values.pass}
+                    onChange={handleInputChange}
                 />
                 {user.error && <small>{user.error}</small>}
                 {/* {user.error ? <small>{user.error}</small> : null} */}

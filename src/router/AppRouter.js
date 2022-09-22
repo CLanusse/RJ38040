@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import { BrowserRouter } from "react-router-dom"
 import { useLoginContext } from "../context/LoginContext"
 import PrivateRoutes from "./PrivateRoutes"
 import PublicRoutes from "./PublicRoutes"
