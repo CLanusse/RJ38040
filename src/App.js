@@ -1,27 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { ArticulosContainer } from "./components/ArticulosContainer/ArticulosContainer";
+import Contenedor from "./components/Contenedor/Contenedor";
+import { Header } from "./components/Header/Header";
 
 const App = () => {
 
+  // const check = false
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className='profe'>
-          Conrado Lanusse the best in the world.
-        </p>
-        <a
-          className="App-link"
-          href="https://coderhouse.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Go Coder
-        </a>
-      </header>
+    <div>
+      {/* { check ? <ArticulosContainer /> : null } */}
+      <Header />
+
+      <Contenedor>
+        <ArticulosContainer />
+      </Contenedor>
     </div>
   );
+
 }
 
 export default App;
